@@ -1,8 +1,6 @@
-# Markov Chain N-Gram Text Generator
+# 🔁 Markov Chain N-Gram Text Generator
 
 A simple and educational implementation of a Markov Chain-based N-Gram language model for text generation. This project demonstrates core natural language processing concepts such as tokenization, probabilistic modeling, and backoff strategies in N-Gram language models.
-
----
 
 ## 📚 About the Model
 
@@ -20,8 +18,6 @@ This model builds a **probabilistic language generator** using the **Markov prop
 
 This model is intended for educational purposes and lacks the depth, generalization, and contextual understanding of modern neural language models (e.g., transformers). It performs best on small, well-structured datasets and is not suitable for tasks requiring nuanced comprehension, long-range dependencies, or semantic consistency.
 
----
-
 ## 🚀 Features
 
 - ✅ Markov Chain-based probabilistic text generation
@@ -30,8 +26,6 @@ This model is intended for educational purposes and lacks the depth, generalizat
 - ✅ Hugging Face tokenizer integration
 - ✅ Save/load model state
 
----
-
 ## 🛠️ Installation
 
 This project uses [`uv`](https://github.com/astral-sh/uv) for package and environment management.
@@ -39,8 +33,6 @@ This project uses [`uv`](https://github.com/astral-sh/uv) for package and enviro
 ```bash
 uv sync
 ```
-
----
 
 ## 🧠 Training the Model
 
@@ -60,15 +52,11 @@ The training script loads text data from the [`roneneldan/TinyStories`](https://
 
 > **TinyStories** is a collection of short, synthetically generated stories using GPT-based models. The dataset is clean, small in vocabulary, and ideal for experiments in language modeling and generative tasks involving basic syntax and semantics.
 
----
-
 ## 🧪 Generating Text
 
 Explore the usage and text generation capabilities with the provided example notebook:
 
 **example.ipynb**
-
----
 
 ## 🧾 Example
 
@@ -84,8 +72,6 @@ model.train_multiprocess(texts=my_corpus, num_processes=4)
 model.generate_text("The future of AI", max_length=50)
 ```
 
----
-
 ## 📘 Theory
 
 The **Markov Chain N-Gram model** approximates the probability of the next word `wₙ` given a history of `N−1` words `(wₙ₋ₙ₊₁, ..., wₙ₋₁)` as:
@@ -93,3 +79,7 @@ The **Markov Chain N-Gram model** approximates the probability of the next word 
 `P(wₙ | wₙ₋ₙ₊₁, ..., wₙ₋₁) = Count(wₙ₋ₙ₊₁, ..., wₙ) / Count(wₙ₋ₙ₊₁, ..., wₙ₋₁)`
 
 When unseen sequences are encountered, the model **backs off** to shorter contexts to maintain robustness.
+
+## 📝 License
+
+This project is licensed under the MIT License.
