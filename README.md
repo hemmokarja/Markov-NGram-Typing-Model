@@ -16,15 +16,19 @@ This model builds a **probabilistic language generator** using the **Markov prop
 - **Tokenization**: Uses Hugging Face's tokenizer ecosystem to perform flexible and robust subword tokenization.
 - **Smoothing**: (Optional) Adds Laplace smoothing to handle sparsity by assigning nonzero probabilities to unseen words.
 
+### ⚠️ Limitations
+
+This model is intended for educational purposes and lacks the depth, generalization, and contextual understanding of modern neural language models (e.g., transformers). It performs best on small, well-structured datasets and is not suitable for tasks requiring nuanced comprehension, long-range dependencies, or semantic consistency.
+
 ---
 
 ## 🚀 Features
 
-- ✅ Markov Chain-based probabilistic text generation  
-- ✅ Configurable N-Gram size with fallback to lower-order models  
-- ✅ Multi-process training support for large datasets  
-- ✅ Hugging Face tokenizer integration  
-- ✅ Save/load model state with `pickle`  
+- ✅ Markov Chain-based probabilistic text generation
+- ✅ Configurable N-Gram size with fallback to lower-order models
+- ✅ Multi-process training support for large datasets
+- ✅ Hugging Face tokenizer integration
+- ✅ Save/load model state
 
 ---
 
@@ -34,6 +38,7 @@ This project uses [`uv`](https://github.com/astral-sh/uv) for package and enviro
 
 ```bash
 uv sync
+```
 
 ---
 
@@ -43,6 +48,7 @@ Run the following to train and save the model:
 
 ```bash
 uv run main.py
+```
 
 You can toggle between:
 - **Single-process training**: `model.train(...)`
@@ -73,11 +79,10 @@ from markov_ngram import MarkovChainNGramModel
 tokenizer = AutoTokenizer.from_pretrained("bert-base-uncased")
 model = MarkovChainNGramModel(tokenizer=tokenizer, n=5, smoothing=True)
 
-# Train on your text data
 model.train_multiprocess(texts=my_corpus, num_processes=4)
 
-# Generate text
 model.generate_text("The future of AI", max_length=50)
+```
 
 ---
 
