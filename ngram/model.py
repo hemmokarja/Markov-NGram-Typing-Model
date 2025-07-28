@@ -153,7 +153,7 @@ class MarkovChainNGramModel:
 
         return final_vocab, final_ngram_counts, final_context_counts
 
-    def get_next_word_probs(self, context, current_n=None):
+    def _get_next_word_probs(self, context, current_n=None):
         """Get probability distribution for next word given context."""
         if current_n is None:
             current_n = self.n
@@ -196,9 +196,7 @@ class MarkovChainNGramModel:
         generated = []
         
         for _ in range(max_length):
-            probs = self.get_next_word_probs(context)
-            if not probs:
-                break
+            probs = self._get_next_word_probs(context)
 
             if temperature != 1.0:
                 for word in probs:
