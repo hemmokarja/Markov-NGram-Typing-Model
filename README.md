@@ -88,10 +88,8 @@ model.generate_text("The future of AI", max_length=50)
 
 ## 📘 Theory
 
-The **Markov Chain N-Gram model** approximates the probability of the next word \( w_n \) given a history of \( N-1 \) words \( (w_{n-N+1}, ..., w_{n-1}) \) as:
+The **Markov Chain N-Gram model** approximates the probability of the next word `wₙ` given a history of `N−1` words `(wₙ₋ₙ₊₁, ..., wₙ₋₁)` as:
 
-\[
-P(w_n | w_{n-N+1}, ..., w_{n-1}) = \frac{\text{Count}(w_{n-N+1}, ..., w_n)}{\text{Count}(w_{n-N+1}, ..., w_{n-1})}
-\]
+P(wₙ | wₙ₋ₙ₊₁, ..., wₙ₋₁) = Count(wₙ₋ₙ₊₁, ..., wₙ) / Count(wₙ₋ₙ₊₁, ..., wₙ₋₁)
 
 When unseen sequences are encountered, the model **backs off** to shorter contexts to maintain robustness.
